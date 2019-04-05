@@ -4,10 +4,10 @@ services:
   web:
     image: 'gitlab/gitlab-ce:latest'
     restart: always
-    hostname: 'http://vmlab.nctu.me'
+    hostname: $HOSTNAME
     environment:
       GITLAB_OMNIBUS_CONFIG: |
-        external_url 'http://vmlab.nctu.me'
+        external_url $EXTERNAL_URL
     ports:
       - '80:80'
       - '443:443'
