@@ -1,16 +1,24 @@
-version: '3.1'
-  
+version: '3'
+
 services:
   gitlab:
-    image: 'gitlab/gitlab-ce:11.9.8-ce.0'
+    image: ${IMAGE}
     restart: always
-    hostname: gitlab
+    hostname: ${HOSTNAME}
     container_name: gitlab
+    #environment:
+    #  GITLAB_OMNIBUS_CONFIG: |
+    #    external_url 'http://gitlab.example.com:8929'
+    #    gitlab_rails['gitlab_shell_ssh_port'] = 2224
+    #ports:
+    #  - '8929:8929'
+    #  - '2224:22'
     ports:
-      - '80:80'
-      - '443:443'
+      - '81:80'
       - '22:22'
+      - '443:443'
     volumes:
       - './srv/gitlab/config:/etc/gitlab'
       - './srv/gitlab/logs:/var/log/gitlab'
       - './srv/gitlab/data:/var/opt/gitlab'
+
