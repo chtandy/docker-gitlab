@@ -22,3 +22,4 @@ sudo setfacl -mR default:group:docker:rwx /srv/gitlab
 ```
 
 [官方gitlab](https://docs.gitlab.com/omnibus/docker/)
+[官方dockerhub](https://hub.docker.com/r/sameersbn/gitlab/)
