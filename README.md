@@ -16,3 +16,9 @@ If this container fails to start due to permission problems try to fix it by exe
   docker exec -it gitlab update-permissions
   docker restart gitlab
 ```
+
+```
+sudo setfacl -mR default:group:docker:rwx /srv/gitlab
+```
+
+[官方gitlab](https://docs.gitlab.com/omnibus/docker/)
