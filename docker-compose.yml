@@ -1,21 +1,22 @@
 version: '3'
-services:    
-  gitlab:
-    image: 'gitlab/gitlab-ce:latest'
+services:
+  web:
+    image: 'gitlab/gitlab-ee:14.0.2-ee.0'
     restart: always
-    hostname: 'gitlab.example.com'
+    hostname: 'gitlab'
     environment:
       GITLAB_OMNIBUS_CONFIG: |
-        external_url 'https://gitlab.example.com'
+        external_url 'https://127.0.0.1'
         # Add any other gitlab.rb configuration here, each on its own line
     ports:
       - '80:80'
       - '443:443'
-      - '22:22'
+      - '1022:22'
     volumes:
-      - '/srv/gitlab/config:/etc/gitlab'
-      - '/srv/gitlab/logs:/var/log/gitlab'
-      - '/srv/gitlab/data:/var/opt/gitlab'
+      - './data/config:/etc/gitlab'
+      - './data/logs:/var/log/gitlab'
+      - './data/data:/var/opt/gitlab'
+    privileged: true
     logging:
       driver: "json-file"
       options:
