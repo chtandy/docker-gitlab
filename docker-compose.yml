@@ -5,9 +5,11 @@ services:
     restart: always
     hostname: 'gitlab'
     environment:
-      GITLAB_OMNIBUS_CONFIG: |
-        external_url 'https://192.168.5.98'
-        # Add any other gitlab.rb configuration here, each on its own line
+      GITLAB_HOST: 'https://192.168.5.98'
+      GITLAB_ROOT_PASSWORD: '#EDC4rfv'
+      #GITLAB_OMNIBUS_CONFIG: |
+      #  external_url 'https://192.168.5.98'
+      #  # Add any other gitlab.rb configuration here, each on its own line
     ports:
       - '80:80'
       - '443:443'
